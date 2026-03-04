@@ -88,8 +88,8 @@ if vim.g.neovide then
     vim.g.neovide_cursor_unfocused_outline_width = 0.125
     
     -- Set padding 
-    vim.g.neovide_padding_top = 0 
-    vim.g.neovide_padding_bottom = 0 
+    vim.g.neovide_padding_top = 10 
+    vim.g.neovide_padding_bottom = 10 
     vim.g.neovide_padding_right = 28
     vim.g.neovide_padding_left = 0 
     
@@ -113,3 +113,4 @@ end
 
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
+

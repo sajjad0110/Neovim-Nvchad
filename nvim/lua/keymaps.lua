@@ -1,7 +1,7 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
-
+------------------------------------------------------------------------------------------------
 -- Compile and Run C file in a new external terminal (Windows)
 vim.keymap.set("n", "<F5>", function()
     -- Save the file first so you don't run old code
@@ -21,6 +21,7 @@ vim.keymap.set("n", "<F5>", function()
     vim.cmd("silent !" .. cmd)
 end, { desc = "Compile and Run C" })
 
+---------------------------------------------------------------------------------------------
 -- Compile and run using MSVC
 vim.keymap.set("n", "<F6>", function()
     -- 1. Save the file
@@ -55,6 +56,8 @@ vim.keymap.set("n", "<F6>", function()
     vim.cmd("silent !" .. cmd)
 end, { desc = "Compile with MSVC (cl.exe)" })
 
+
+--------------------------------------------------------------------------------------
 -- Compile and Run C in a separate Linux Terminal
 vim.keymap.set("n", "<F5>", function()
     -- 1. Save the file
@@ -88,3 +91,4 @@ vim.keymap.set("n", "<F5>", function()
     -- 6. Run the command detached (so Neovim doesn't freeze)
     vim.fn.jobstart(final_cmd, { detach = true })
 end, { desc = "Compile and Run C (Linux)" })
+

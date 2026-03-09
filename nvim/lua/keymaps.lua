@@ -69,8 +69,8 @@ vim.keymap.set("n", "<F5>", function()
     local term = "alacritty"
 
     -- 3. Get file info
-    local file = vim.fn.expand("%")
-    local exe = vim.fn.expand("%:r")
+    local file = vim.fn.expand("%:t")
+    local exe = vim.fn.expand("%:t:r")
 
     -- 4. Create the bash command
     --    gcc compiles it
@@ -91,4 +91,5 @@ vim.keymap.set("n", "<F5>", function()
     -- 6. Run the command detached (so Neovim doesn't freeze)
     vim.fn.jobstart(final_cmd, { detach = true })
 end, { desc = "Compile and Run C (Linux)" })
+
 

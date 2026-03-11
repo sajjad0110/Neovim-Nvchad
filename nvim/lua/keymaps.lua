@@ -2,8 +2,8 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 ------------------------------------------------------------------------------------------------
--- Compile and Run C file in a new external terminal (Windows)
-vim.keymap.set("n", "<F5>", function()
+-- Compile and Run C file in a new external terminal (Windows) - F3
+vim.keymap.set("n", "<F3>", function()
     -- Save the file first so you don't run old code
     vim.cmd("w")
 
@@ -22,8 +22,8 @@ vim.keymap.set("n", "<F5>", function()
 end, { desc = "Compile and Run C" })
 
 ---------------------------------------------------------------------------------------------
--- Compile and run using MSVC
-vim.keymap.set("n", "<F6>", function()
+-- Compile and run using MSVC - F4
+vim.keymap.set("n", "<F4>", function()
     -- 1. Save the file
     vim.cmd("w")
 
@@ -58,7 +58,7 @@ end, { desc = "Compile with MSVC (cl.exe)" })
 
 
 --------------------------------------------------------------------------------------
--- Compile and Run C in a separate Linux Terminal
+-- Compile and Run C in a separate Linux Terminal - F5
 vim.keymap.set("n", "<F5>", function()
     -- 1. Save the file
     vim.cmd("w")
@@ -97,7 +97,7 @@ end, { desc = "Compile and Run C (Linux)" })
 ------- Python3 --------
 ------------------------
 
--- Run Python in a separate Linux Terminal
+-- Run Python in a separate Linux Terminal - F6
 vim.keymap.set("n", "<F6>", function()
   -- 1. Save the file
   vim.cmd("w")
@@ -132,6 +132,7 @@ end, { desc = "Run Python (Linux)" })
 -- Toggleterm open in the working directory
 vim.keymap.set("n", "<C-\\>", ":ToggleTerm dir=%:p:h<CR>", { noremap = true, silent = true })
 vim.keymap.set("t", "<C-\\>", [[<C-\><C-n><Cmd>ToggleTerm<CR>]], { noremap = true, silent = true })
+
 
 
 

@@ -108,7 +108,7 @@ vim.keymap.set("n", "<F6>", function()
   local term = "konsole"
 
   -- 3. Get file info
-  local file = vim.fn.expand("%:t")
+  local file = vim.fn.expand("%:p")
 
   -- 4. Create the bash command
   --    python runs the script
@@ -132,6 +132,7 @@ end, { desc = "Run Python (Linux)" })
 -- Toggleterm open in the working directory
 vim.keymap.set("n", "<C-\\>", ":ToggleTerm dir=%:p:h<CR>", { noremap = true, silent = true })
 vim.keymap.set("t", "<C-\\>", [[<C-\><C-n><Cmd>ToggleTerm<CR>]], { noremap = true, silent = true })
+
 
 
 

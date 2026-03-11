@@ -91,5 +91,47 @@ vim.keymap.set("n", "<F5>", function()
     -- 6. Run the command detached (so Neovim doesn't freeze)
     vim.fn.jobstart(final_cmd, { detach = true })
 end, { desc = "Compile and Run C (Linux)" })
+------------------------------------
+
+------------------------
+------- Python3 --------
+------------------------
+
+-- Run Python in a separate Linux Terminal
+vim.keymap.set("n", "<F6>", function()
+  -- 1. Save the file
+  vim.cmd("w")
+
+  -- 2. SET YOUR TERMINAL HERE
+  -- Common options: "alacritty", "konsole", "kitty", "gnome-terminal", "wezterm"
+  -- CachyOS usually defaults to "alacritty"
+  local term = "konsole"
+
+  -- 3. Get file info
+  local file = vim.fn.expand("%:t")
+
+  -- 4. Create the bash command
+  --    python runs the script
+  --    ; read ... pauses the window so it doesn't close immediately
+  local bash_cmd = string.format("python3 '%s'; echo ''; echo 'Press Enter to close...'; read", file)
+
+  -- 5. Execute based on the terminal
+  --    Most terminals (Alacritty, Konsole, XTerm) use -e to execute a command
+  local final_cmd = string.format('%s -e bash -c "%s"', term, bash_cmd)
+
+  -- Special case for Kitty (if you use it)
+  if term == "kitty" then
+    final_cmd = string.format('kitty bash -c "%s"', bash_cmd)
+  end
+
+  -- 6. Run the command detached (so Neovim doesn't freeze)
+  vim.fn.jobstart(final_cmd, { detach = true })
+end, { desc = "Run Python (Linux)" })
+------------------------------------------------------------------------
+
+-- Toggleterm open in the working directory
+vim.keymap.set("n", "<C-\\>", ":ToggleTerm dir=%:p:h<CR>", { noremap = true, silent = true })
+vim.keymap.set("t", "<C-\\>", [[<C-\><C-n><Cmd>ToggleTerm<CR>]], { noremap = true, silent = true })
+
 
 
